@@ -1,0 +1,22 @@
+<!-- polls/templates/polls/poll_list.html -->
+{% extends 'accounts/base.html' %}
+
+{% block title %}Poll List{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            {% for poll in polls %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 bg-{{ forloop.counter|divisibleby:2|yesno:'primary,danger' }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ poll.question }}</h5>
+                        <a href="{% url 'poll_detail' poll.id %}" class="btn btn-primary">Vote</a>
+                        <a href="{% url 'poll_results' poll.id %}" class="btn btn-secondary">View Results</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

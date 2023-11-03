@@ -1,0 +1,15 @@
+<!-- polls/templates/accounts/home.html -->
+{% extends 'accounts/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <div class="jumbotron text-center bg-primary text-white bg-primary">
+        <h1>Your Voting App</h1>
+        <p>Welcome to our voting platform. Make your voice heard!</p>
+        <div class="d-flex justify-content-center mt-4">
+            <a href="{% url 'register' %}" class="btn btn-primary btn-lg mx-2 bg-danger">Register</a>
+            <a href="{% url 'login' %}" class="btn btn-secondary btn-lg mx-2 bg-success">Login</a>
+        </div>
+    </div>
+{% endblock %}

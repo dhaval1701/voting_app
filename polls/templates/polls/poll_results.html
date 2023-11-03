@@ -1,0 +1,31 @@
+<!-- polls/templates/polls/poll_results.html -->
+{% extends 'accounts/base.html' %}
+
+{% block title %}{{ poll.question }} - Results{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h1 class="mb-4">{{ poll.question }} - Results</h1>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Choice</th>
+                            <th>Votes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for choice in poll.choice_set.all %}
+                        <tr>
+                            <td>{{ choice.choice_text }}</td>
+                            <td>{{ choice.votes }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <a href="{% url 'poll_list' %}" class="btn btn-secondary mt-3">Back to Poll List</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
